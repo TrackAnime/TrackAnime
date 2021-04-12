@@ -88,8 +88,7 @@ An app that provides a list of anime, along with genres, and ratings. You'll be 
    * Login / Signup screen
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="https://imgur.com/gallery/H7YdwOS" width=600>
+<img src="https://i.imgur.com/UupoYfv.jpg" width=600>
 
 ## Schema 
 [This section will be completed in Unit 9]

@@ -11,7 +11,7 @@ Original App Design Project - README Template
 
 ## Overview
 ### Description
-An app that provides a list of anime, along with genres, and ratings. You'll be able to keep tabs on what anime you watched, what you're watching, and what you might be interested in. It will also contain a fun section where it will quiz the user on Anime facts.
+An app that provides a list of anime, along with genres and ratings. You'll be able to keep tabs on what anime you have watched, what you're watching, and what you might be interested in.
 
 ### App Evaluation
 - **Category:** Anime / Entertainment

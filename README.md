@@ -93,8 +93,59 @@ An app that provides a list of anime, along with genres and ratings. You'll be a
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user (default field) |
+   | username       | String | name of the user |
+   | password      | String | password of the user |
+   | createdAt     | Date | date when post is created (default field) |
+   | updatedAt     | Date | date when post is last updated (default field) |
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+#### List of network requests by screen
+   - Login/Signup Screen
+      - Login 
+          - private void loginUser(String username, String password) {
+        Log.i(TAG, "Attempting to login user " + username);
+        // TODO: navigate to the main activity if the user has signed in properly
+        ParseUser.logInInBackground(username, password, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                if (e != null) {
+                    // TODO: better error handling
+                    Log.e(TAG, "Issue with login", e);
+                    Toast.makeText(LoginActivity.this, "Issue with login!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // TODO: navigate to the main activity if the user has signed in properly
+                goMainActivity();
+                Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+      - Signup
+          - private void signUpUser() {
+        // Create the ParseUser
+        ParseUser user = new ParseUser();
+        // Set core properties
+        user.setUsername(etUsername.getText().toString());
+        user.setPassword(etPassword.getText().toString());
+        // Invoke signUpInBackground
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    // Hooray! Let them use the app now.
+                    goMainActivity();
+                    Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Sign up didn't succeed. Look at the ParseException
+                    // to figure out what went wrong
+                    Log.e(TAG, "Issue with signup!", e);
+                    Toast.makeText(LoginActivity.this, "Issue with signup!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        });
+    }
